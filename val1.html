@@ -1,0 +1,54 @@
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CARA PENGIRIMAN</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function showhide() {
+            // alert("pas diubah, valuenya : " + document.getElementById("switch1").value);
+            var item = document.getElementById("kurir");
+            if (item.style.display == 'none') { //mengubah style CSS display
+                item.style.display = 'block';
+                document.getElementById("lblkurir").style.display = 'block';
+                document.getElementById("nrp").disabled = false; //bisa diisi
+            } else {
+                item.style.display = 'none';
+                document.getElementById("lblkurir").style.display = 'none';
+                document.getElementById("nrp").setAttribute("disabled", "false"); //tidak bisa diisi
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <h3>Pilih metode pengiriman</h3>
+        <form action="http://google.com" onsubmit="return false;">
+            <div class="custom-control custom-switch">
+                <input type="checkbox" class="custom-control-input" id="switch1" name="example" onchange="showhide();"
+                    value="cod">
+                <label class="custom-control-label" for="switch1">COD</label>
+            </div>
+            <div class="form-group">
+                <label for="kurir" id="lblkurir">Pilih Kurir</label>
+                <select class="form-control" id="kurir">
+                    <option value="JNE">JNE Rp 10.000</option>
+                    <option value="siCepat">siCepat Rp 15.000</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="nrp">NRP</label>
+                <input type="text" id="nrp" name="nrp" placeholder="Masukkan 10 digit NRP" class="form-control">
+                <h2 style="color :rgb(181, 27, 27);" id="errorNRP"></h2>
+            </div>
+            <br>
+            <button type="submit" class="btn btn-primary">BELI</button>
+        </form>
+    </div>
+</body>
+
+</html>
